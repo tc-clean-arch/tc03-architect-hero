@@ -1,0 +1,61 @@
+plugins {
+    id "java"
+    id "io.quarkus"
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    // Quarkus Platform BOM
+    implementation platform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+
+    // Core e REST (Jackson Edition)
+    implementation "io.quarkus:quarkus-arc"
+    implementation "io.quarkus:quarkus-rest-jackson" // Adiciona Jackson ao pipeline REST também
+
+    // Kafka e Mensageria
+    implementation "io.quarkus:quarkus-messaging-kafka"
+
+    // Suporte a Jackson (Essencial para Records e Java Time)
+    implementation "io.quarkus:quarkus-jackson"
+
+    // Dependência de Contratos (JAR Externo)
+    implementation files("../contracts/build/libs/contracts-1.0.0.jar")
+
+    // Hibernate ORM + Panache
+    implementation("io.quarkus:quarkus-hibernate-orm-panache")
+
+    // JDBC Postgres
+    implementation("io.quarkus:quarkus-jdbc-postgresql")
+
+    // Flyway (altamente recomendado)
+    implementation("io.quarkus:quarkus-flyway")
+
+
+    //security
+    implementation 'io.quarkus:quarkus-security'
+
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly   'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly   'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    // Testes
+    testImplementation "io.quarkus:quarkus-junit5"
+    testImplementation "io.rest-assured:rest-assured"
+}
+
+group = "com.fiap"
+version = "1.0.0-SNAPSHOT"
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+test {
+    systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
+}

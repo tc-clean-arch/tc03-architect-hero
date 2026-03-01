@@ -1,0 +1,59 @@
+plugins {
+    id 'java'
+    id 'io.quarkus'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+    implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-rest'
+    implementation 'io.quarkus:quarkus-rest-jackson'
+    implementation 'io.quarkus:quarkus-security'
+    implementation 'io.quarkus:quarkus-vertx-http'
+    implementation("io.quarkus:quarkus-rest-client-jackson")
+
+    // =========================
+    // SEGURANÇA / AUTH
+    // =========================
+    implementation 'io.quarkus:quarkus-security'
+    implementation 'org.mindrot:jbcrypt:0.4'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly   'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly   'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    ///// banco
+    // 🔹 Hibernate ORM + Panache
+    implementation("io.quarkus:quarkus-hibernate-orm-panache")
+
+    // 🔹 JDBC Postgres
+    implementation("io.quarkus:quarkus-jdbc-postgresql")
+
+    // 🔹 Flyway (migrations)
+    implementation("io.quarkus:quarkus-flyway")
+}
+
+group = 'com.fiap'
+version = '1.0.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+test {
+    systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
+    jvmArgs "--add-opens", "java.base/java.lang=ALL-UNNAMED"
+}
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
