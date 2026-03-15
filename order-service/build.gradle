@@ -22,9 +22,6 @@ dependencies {
     // Suporte a Jackson (Essencial para Records e Java Time)
     implementation "io.quarkus:quarkus-jackson"
 
-    // Dependência de Contratos (JAR Externo)
-    implementation files("../contracts/build/libs/contracts-1.0.0.jar")
-
     // Hibernate ORM + Panache
     implementation("io.quarkus:quarkus-hibernate-orm-panache")
 

@@ -1,7 +1,7 @@
 package com.fiap.infrastructure.event;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import contracts.events.PagamentoAprovadoEvent;
+import com.fiap.infrastructure.contracts.events.PagamentoAprovadoEvent;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.reactive.messaging.Channel;

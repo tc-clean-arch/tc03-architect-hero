@@ -3,7 +3,7 @@ package com.fiap.infrastructure.event;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fiap.core.usecases.pedidos.atualizar.AtualizarStatusPedidoInputBoundary;
 import com.fiap.core.usecases.pedidos.atualizar.AtualizarStatusPedidoInputData;
-import contracts.events.PagamentoAprovadoEvent;
+import com.fiap.infrastructure.contracts.events.PagamentoAprovadoEvent;
 import io.smallrye.reactive.messaging.annotations.Blocking;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.control.ActivateRequestContext;

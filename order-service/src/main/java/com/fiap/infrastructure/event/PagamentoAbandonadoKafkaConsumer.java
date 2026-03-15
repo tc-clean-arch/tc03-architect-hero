@@ -2,8 +2,8 @@ package com.fiap.infrastructure.event;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fiap.core.entities.StatusPedido;
+import com.fiap.infrastructure.contracts.events.PagamentoAbandonadoEvent;
 import com.fiap.infrastructure.db.repository.PedidoPanacheRepository;
-import contracts.events.PagamentoAbandonadoEvent;
 import io.smallrye.reactive.messaging.annotations.Blocking;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

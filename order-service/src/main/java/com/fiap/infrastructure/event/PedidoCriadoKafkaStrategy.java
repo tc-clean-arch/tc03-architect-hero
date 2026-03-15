@@ -1,8 +1,9 @@
 package com.fiap.infrastructure.event;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fiap.core.event.PedidoCriadoEvent;
+
 import com.fiap.core.event.mapper.PedidoCriadoEventMapper;
+import com.fiap.infrastructure.contracts.events.PedidoCriadoEvent;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.reactive.messaging.Channel;
@@ -10,7 +11,7 @@ import org.eclipse.microprofile.reactive.messaging.Emitter;
 
 @ApplicationScoped
 public class PedidoCriadoKafkaStrategy
-        implements EventPublishStrategy<com.fiap.core.event.PedidoCriadoEvent> {
+        implements EventPublishStrategy<PedidoCriadoEvent> {
 
     @Inject
     @Channel("pedido-criado-out")
@@ -20,12 +21,12 @@ public class PedidoCriadoKafkaStrategy
     ObjectMapper objectMapper;
 
     @Override
-    public Class<com.fiap.core.event.PedidoCriadoEvent> eventType() {
-        return com.fiap.core.event.PedidoCriadoEvent.class;
+    public Class<PedidoCriadoEvent> eventType() {
+        return PedidoCriadoEvent.class;
     }
 
     @Override
-    public void publish(com.fiap.core.event.PedidoCriadoEvent event) {
+    public void publish(PedidoCriadoEvent event) {
         try {
             var contractEvent =
                     PedidoCriadoEventMapper.toContract(event);

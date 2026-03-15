@@ -1,11 +1,24 @@
+#---------- Build ----------
+FROM gradle:8.7-jdk21 AS build
+
+WORKDIR /workspace
+
+COPY . .
+
+RUN chmod +x gradlew
+
+RUN ./gradlew build -x test --no-daemon
+
+
+#---------- Runtime ----------
 FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
-COPY build/quarkus-app/lib/ /app/lib/
-COPY build/quarkus-app/*.jar /app/
-COPY build/quarkus-app/app/ /app/app/
-COPY build/quarkus-app/quarkus/ /app/quarkus/
+COPY --from=build /workspace/build/quarkus-app/lib/ /app/lib/
+COPY --from=build /workspace/build/quarkus-app/*.jar /app/
+COPY --from=build /workspace/build/quarkus-app/app/ /app/app/
+COPY --from=build /workspace/build/quarkus-app/quarkus/ /app/quarkus/
 
 EXPOSE 8080
 
