@@ -1,6 +1,5 @@
 package com.fiap.infrastructure.contracts.events;
 
-import java.math.BigInteger;
 import java.time.Instant;
 import java.util.UUID;
 

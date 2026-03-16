@@ -8,7 +8,7 @@ import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 
 @ApplicationScoped
-public class PagamentoPendenteKafkaStrategy implements EventPublishStrategy {
+public class PagamentoPendenteKafkaStrategy implements EventPublishStrategy<PagamentoPendenteEvent> {
 
     @Inject
     @Channel("pagamento-pendente-out")
@@ -18,12 +18,12 @@ public class PagamentoPendenteKafkaStrategy implements EventPublishStrategy {
     ObjectMapper objectMapper;
 
     @Override
-    public Class<?> eventType() {
+    public Class<PagamentoPendenteEvent> eventType() {
         return PagamentoPendenteEvent.class;
     }
 
     @Override
-    public void publish(Object event) {
+    public void publish(PagamentoPendenteEvent event) {
         try {
             PagamentoPendenteEvent contractEvent =
                     (PagamentoPendenteEvent) event;

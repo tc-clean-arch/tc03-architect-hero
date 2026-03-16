@@ -4,8 +4,6 @@ import com.fiap.core.dataaccess.PedidoDataAccess;
 import com.fiap.core.entities.Pedido;
 
 import com.fiap.core.entities.StatusPedido;
-import com.fiap.core.event.PedidoPagoEvent;
-import com.fiap.core.event.publisher.DomainEventPublisher;
 import com.fiap.core.exception.PedidoNaoEncontradoException;
 import org.jboss.logging.Logger;
 

@@ -1,9 +1,9 @@
 package com.fiap.infrastructure.event;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import com.fiap.core.event.PedidoCriadoEvent;
 import com.fiap.core.event.mapper.PedidoCriadoEventMapper;
-import com.fiap.infrastructure.contracts.events.PedidoCriadoEvent;
+
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.reactive.messaging.Channel;

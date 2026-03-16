@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fiap.core.exception.PagamentoAindaPendenteException;
 import com.fiap.core.usecases.ProcessarPagamentoInteractor;
 import com.fiap.core.usecases.ProcessarPagamentoInputData;
-import com.fiap.infra.events.*;
 import io.smallrye.reactive.messaging.annotations.Blocking;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

@@ -1,7 +1,6 @@
 package com.fiap.core.event.mapper;
 
-
-import com.fiap.infrastructure.contracts.events.PedidoCriadoEvent;
+import com.fiap.core.event.PedidoCriadoEvent;
 
 public class PedidoCriadoEventMapper {
 
@@ -11,7 +10,8 @@ public class PedidoCriadoEventMapper {
         return PedidoCriadoEvent.of(
                 event.pedidoId(),
                 event.clienteId(),
-                event.valor()
+                event.valor(),
+                event.status()
         );
     }
 }

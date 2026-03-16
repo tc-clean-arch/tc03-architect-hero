@@ -3,10 +3,6 @@ package com.fiap.infrastructure.contracts.events;
 import java.time.Instant;
 import java.util.UUID;
 
-
-import java.time.Instant;
-import java.util.UUID;
-
 public interface IntegrationEvent {
 
     UUID aggregateId();

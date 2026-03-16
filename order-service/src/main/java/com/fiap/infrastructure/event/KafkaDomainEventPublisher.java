@@ -1,6 +1,5 @@
 package com.fiap.infrastructure.event;
 
-
 import com.fiap.core.event.publisher.DomainEventPublisher;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Instance;

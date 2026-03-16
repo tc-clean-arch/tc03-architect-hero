@@ -1,6 +1,5 @@
 package com.fiap.core.usecases.pedidos.listar;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 

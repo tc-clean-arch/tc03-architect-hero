@@ -1,6 +1,5 @@
 package com.fiap.infra.events;
 
-import java.math.BigInteger;
 import java.time.Instant;
 import java.util.UUID;
 
